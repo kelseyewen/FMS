@@ -1,0 +1,10 @@
+#Separate All Livestock Table Into Each Livestock Type
+LivestockFarms <- read.csv("LivestockFarms.csv")
+Beef <- subset(LivestockFarms, SectorID=="Beef", select=SectorID:WGTLIVE_AAFC)
+View(Beef)
+Dairy <- subset(LivestockFarms, SectorID=="Dairy", select=SectorID:WGTLIVE_AAFC)
+Pigs <- subset(LivestockFarms, SectorID=="Pigs", select=SectorID:WGTLIVE_AAFC)
+Poultry <- subset(LivestockFarms, SectorID=="Poultry", select=SectorID:WGTLIVE_AAFC)
+View(Dairy)
+View(Pigs)
+View(Poultry)

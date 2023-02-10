@@ -1,3 +1,4 @@
+#This's the script to obtain the results from Canada farm survey
 library(tidyverse);library(xlsx)
 Dairy <- read.csv("input/dairyFarms.csv",header=T)
 

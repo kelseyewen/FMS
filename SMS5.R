@@ -1,4 +1,4 @@
-library(readxl)
+#Separate All Livestock Table Into Each Livestock Type
 Beef <- subset(LivestockFarms, SectorID=="Beef", select=SectorID:WGTLIVE_AAFC)
 View(Beef)
 Dairy <- subset(LivestockFarms, SectorID=="Dairy", select=SectorID:WGTLIVE_AAFC)
@@ -44,5 +44,8 @@ Beef_SMS5 <- count_responses %>%
   spread(SMS5, count)
 
 # Print the resulting pivot table
-print(pivot_table)
+print(Beef_SMS5)
 
+colnames(Beef_SMS5) <- c("Province", "<6 months", "6-12 months", "1-2 Years", ">2 Years")
+Beef_SMS5 <- Beef_SMS5[,-6]
+View(Beef_SMS5)

@@ -3,7 +3,7 @@ library(dplyr)
 library(tidyr)
 
 # Count the responses to the multiple choice question
-count_responses <- Dairy %>%
+count_responses <- Poultry %>%
   group_by(PROV, SMS5) %>%
   summarize(count = n())
 
@@ -20,13 +20,13 @@ colnames(Dairy_SMS5) <- c("Province", "<6 months", "6-12 months", "1-2 Years")
 Dairy_SMS5 <- Dairy_SMS5[,-5]
 
 #Save as a data frame
-Dairy_SMS5 <- as.data.frame(Dairy_SMS5)
+Poultry_SMS5 <- as.data.frame(Poultry_SMS5)
 
 View(Dairy_SMS5)
 
 #Export tables to excel
-xls.list <- list(Dairy_SMS5=Dairy_SMS5)
+xls.list <- list(Poultry_SMS5=Poultry_SMS5)
 for (i in 1:1) {
-  write.xlsx(as.data.frame(Dairy_SMS5),
-             file = "results/Dairy.xlsx",
+  write.xlsx(as.data.frame(Poultry_SMS5),
+             file = "results/Poultry.xlsx",
              sheetName = names(xls.list)[1], row.names = F, col.names=TRUE, append = TRUE)}

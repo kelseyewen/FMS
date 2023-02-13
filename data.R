@@ -32,10 +32,10 @@ result_df <- data.frame(name = c("BC", "AB", "SK"), count = counts)
 
 
 #Export tables to excel
-xls.list <- list(Dairy.DI01 = Dairy.DI01,
-                 DDBHM3a = DBHM3a)
-for (i in 1: length(xls.list)) {
-  write.xlsx(xls.list[[i]],
-             file = "results/Dairy.xlsx",
-             sheetName = names(xls.list)[i], row.names = F, append = TRUE)
+xls.list <- list(Beef_SMS5=Beef_SMS5)
+for (i in 1:1) {
+  write.xlsx(as.data.frame(Beef_SMS5),
+             file = "results/Beef.xlsx",
+             sheetName = names(xls.list)[1], row.names = F, col.names=TRUE, append = TRUE)
 }
+

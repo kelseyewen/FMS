@@ -5,10 +5,6 @@ Pigs <- Pigs[Pigs$SectorID =="Pigs",]
 Pigs[is.na(Pigs)] <- 99999
 
 
-Pigs_LMS9 <- count(Pigs, LMS9a)
-
-View(Pigs_LMS9)
-LMS9 <- count(Dairy,Dairy[,26], PROV)
 
 df.PigsLMS9 <-data.frame(PROV = c("AB","BC","MB","NB","NS","ON","QC"),
 LMS9a = rep(0,7),

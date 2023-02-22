@@ -19,3 +19,11 @@ prov.code <- data.frame(SGC=c(12,13,24,35,46,47,48,59),
 for (i in 1:nrow(prov.code)){
   Poultry2022$prov <- replace(Poultry2022$prov,Poultry2022$prov == prov.code[i,1],prov.code[i,2])
 }
+
+
+#Export tables to excel
+xls.list <- list(Poultry2022=Poultry2022)
+for (i in 1:1) {
+  write.xlsx(as.data.frame(Poultry2022),
+             file = "input/Poultry2022.xlsx",
+             sheetName = names(xls.list)[1], row.names = F, col.names=TRUE, append = TRUE)}

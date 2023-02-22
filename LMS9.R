@@ -30,16 +30,16 @@ for(j in 1:8){
 Dairy2022_LMS9 <- df.Dairy2022LMS9
 
 #Change column names
-colnames(Pigs2022_LMS9) <- c("Province", "Agitated prior to application", "Aerated to increase oxygen", "Mechanically separated coarse solids", "Mixed with additives", "Anaerobic biodigester or methane capture", "Other", "No practices")
+colnames(Dairy2022_LMS9) <- c("Province", "Agitated prior to application", "Aerated to increase oxygen", "Mechanically separated coarse solids", "Mixed with additives", "Anaerobic biodigester or methane capture", "Other", "No practices")
 
 #Save as a data frame
-Pigs2022_LMS9 <- as.data.frame(Pigs2022_LMS9)
+Dairy2022_LMS9 <- as.data.frame(Dairy2022_LMS9)
 
 View(Pigs2022_LMS9)
 
 #Export tables to excel
-xlsx.list <- list(Pigs2022_LMS9=Pigs2022_LMS9)
+xlsx.list <- list(Dairy2022_LMS9=Dairy2022_LMS9)
 for (i in 1:1) {
-  write.xlsx(as.data.frame(Pigs2022_LMS9),
-             file = "results/Pigs.xlsx",
+  write.xlsx(as.data.frame(Dairy2022_LMS9),
+             file = "results/Dairy.xlsx",
              sheetName = names(xls.list)[1], row.names = F, col.names=TRUE, append = TRUE)}

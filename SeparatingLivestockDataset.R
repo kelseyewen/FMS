@@ -17,7 +17,7 @@ prov.code <- data.frame(SGC=c(12,13,24,35,46,47,48,59),
                         alphacode=c("NS","NB","QC","ON","MB","SK","AB","BC"))
 
 for (i in 1:nrow(prov.code)){
-  Poultry2022$prov <- replace(Poultry2022$prov,Poultry2022$prov == prov.code[i,1],prov.code[i,2])
+  Pigs2022$prov <- replace(Pigs2022$prov,Pigs2022$prov == prov.code[i,1],prov.code[i,2])
 }
 
 

@@ -33,13 +33,13 @@ Dairy2022_LMS9 <- df.Dairy2022LMS9
 colnames(Dairy2022_LMS9) <- c("Province", "Agitated prior to application", "Aerated to increase oxygen", "Mechanically separated coarse solids", "Mixed with additives", "Anaerobic biodigester or methane capture", "Other", "No practices")
 
 #Save as a data frame
-Dairy2022_LMS9 <- as.data.frame(Dairy2022_LMS9)
+Dairy2022_LMS09 <- as.data.frame(Dairy2022_LMS09)
 
 View(Pigs2022_LMS9)
 
 #Export tables to excel
-xlsx.list <- list(Dairy2022_LMS9=Dairy2022_LMS9)
+xlsx.list <- list(Dairy2022_LMS09=Dairy2022_LMS09)
 for (i in 1:1) {
-  write.xlsx(as.data.frame(Dairy2022_LMS9),
-             file = "results/Dairy.xlsx",
+  write.xlsx(as.data.frame(Dairy2022_LMS09),
+             file = "results/Dairy2022.xlsx",
              sheetName = names(xls.list)[1], row.names = F, col.names=TRUE, append = TRUE)}

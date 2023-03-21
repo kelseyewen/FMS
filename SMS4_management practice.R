@@ -1,6 +1,6 @@
 #SMS4 is a question regarding management practice
 #We have Dairy, Beef, and Poultry here
-library(tidyverse)
+library(tidyverse);library(xlsx)
 
 #2017 data
 Dairy2017 <- read.csv("input/2017/Dairy2017.csv",header=T)

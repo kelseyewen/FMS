@@ -7,12 +7,12 @@ All data start from original data "2017livestock.csv" and "2022livestock.csv" fr
 # Analysis detail
 In this study, we analyzed the management practice, storage time, cover type, and storage time for solid manure (SM) and liquid manure (LM).The two original data were grouped by Livestock, including Dariy, Beef, Pigs, and Poultry. The grouping process can be found in "SeparatingLivestockDataset.R"
 
-#Soild Manure, SM
+## Soild Manure, SM
 For SM, Management practice (SMS4) and Storage time (SMS5) were analyzed. The SMS4 and SMS5 were the code used in the survey. Dairy, Beef, and Poultry data were used here.  
 The analysis of SMS4 can be founded in "SMS4_management practice.R".    
 The analysis of SMS5 can be founded in "SMS5_stroage time.R".   
 
-#Liquid Manure, LM
+## Liquid Manure, LM
 For LM, Storage type (LMS2), Storage time (LMS4), Cover type (LMS8), Management practice (LMS9) were analyzed. The codes were used in the survey. Dairy and Pigs data were used here.     
 The analysis of LMS2 can be founded in "LMS2_Storage type.R".  
 The analysis of LMS4 can be founded in "LMS4_Storage time.R".   

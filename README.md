@@ -5,8 +5,7 @@ This is repository for the analysis process and results for Canada farm survey i
 All data start from original data "2017livestock.csv" and "2022livestock.csv" from Stat Canada. The data is confidential. Anyone who would like to reproduce the results need to send your request to Dr. Andrew VanderZaag (andrew.vanderzaag@AGR.GC.CA). Dr. Andrew VanderZaag is the Research Scientist at Agriculture Agri-Food Canada and responsible for this project. Dr. Chih-Yu Hung (chih-yu.hung@AGR.GC.CA / chih-yu.hung@mail.mcgill.ca) is responsible for the R script, which is based on Ewen Kelsey's analysis in excel sheet. Should you have any issue related to the analysis, please contact Dr. VanderZaag or Dr. Hung.  
 
 # Analysis detail
-In this study, we analyzed the management practice, storage time, cover type, and storage time for solid manure (SM) and liquid manure (LM).
-The two original data were grouped by Livestock, including Dariy, Beef, Pigs, and Poultry. The grouping process can be found in "SeparatingLivestockDataset.R"
+In this study, we analyzed the management practice, storage time, cover type, and storage time for solid manure (SM) and liquid manure (LM).The two original data were grouped by Livestock, including Dariy, Beef, Pigs, and Poultry. The grouping process can be found in "SeparatingLivestockDataset.R"
 
 #Soild Manure, SM
 For SM, Management practice (SMS4) and Storage time (SMS5) were analyzed. The SMS4 and SMS5 were the code used in the survey. Dairy, Beef, and Poultry data were used here. 

@@ -99,9 +99,9 @@ df.LMS2_Pw <- cbind(df.LMS2_P[,1:4],
                    df.LMS2_P[,sort(colnames(df.LMS2_P)[5:ncol(df.LMS2_P)])])
 
 #add year
-year <- c("","","2017","2022",rep(c("2017","2022"),each=7))
-df.LMS2_Dw <- rbind(year,df.LMS2_D)
-df.LMS2_Pw <- rbind(year,df.LMS2_P)
+year <- c("","",rep(c("2017","2022"),8))
+df.LMS2_Dw <- rbind(year,df.LMS2_Dw)
+df.LMS2_Pw <- rbind(year,df.LMS2_Pw)
 
 #make a list for weighted results
 LMS2weight_list <- list(df.LMS2_Dw,df.LMS2_Pw)
@@ -151,7 +151,7 @@ df.LMS2_P <- cbind(df.LMS2_P[,1:4],
                    df.LMS2_P[,sort(colnames(df.LMS2_P)[5:ncol(df.LMS2_P)])])
 
 #add year
-year <- c("","","2017","2022",rep(c("2017","2022"),each=7))
+year <- c("","",rep(c("2017","2022"),8))
 df.LMS2_D <- rbind(year,df.LMS2_D)
 df.LMS2_P <- rbind(year,df.LMS2_P)
 

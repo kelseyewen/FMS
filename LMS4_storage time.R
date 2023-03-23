@@ -93,7 +93,7 @@ df.LMS4_Pw <- cbind(df.LMS4_P[,1:4],
                    df.LMS4_P[,sort(colnames(df.LMS4_P)[5:ncol(df.LMS4_P)])])
 
 #add year
-year <- c("","","2017","2022",rep(c("2017","2022"),each=4))
+year <- c("","",rep(c("2017","2022"),5))
 df.LMS4_Dw <- rbind(year,df.LMS4_Dw)
 df.LMS4_Pw <- rbind(year,df.LMS4_Pw)
 
@@ -142,7 +142,7 @@ df.LMS4_P <- cbind(df.LMS4_P[,1:4],
                    df.LMS4_P[,sort(colnames(df.LMS4_P)[5:ncol(df.LMS4_P)])])
 
 #add year
-year <- c("","","2017","2022",rep(c("2017","2022"),each=4))
+year <- c("","",rep(c("2017","2022"),5))
 df.LMS4_D <- rbind(year,df.LMS4_D)
 df.LMS4_P <- rbind(year,df.LMS4_P)
 

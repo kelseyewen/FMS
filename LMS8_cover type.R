@@ -127,12 +127,12 @@ write.xlsx(LMS8weight,
 #calculate the weighted % results
 df.LMS8_D[,5:10] <- round(proportions(
                            as.matrix(df.LMS8_D[,5:10]),1)*100,1)
-df.LMS8_D[,11:15] <- round(proportions(
-                          as.matrix(df.LMS8_D[,11:15]),1)*100,1)
+df.LMS8_D[,11:16] <- round(proportions(
+                          as.matrix(df.LMS8_D[,11:16]),1)*100,1)
 df.LMS8_P[,5:10] <- round(proportions(
                           as.matrix(df.LMS8_P[,5:10]),1)*100,1)
-df.LMS8_P[,11:15] <- round(proportions(
-                          as.matrix(df.LMS8_P[,11:15]),1)*100,1)
+df.LMS8_P[,11:16] <- round(proportions(
+                          as.matrix(df.LMS8_P[,11:16]),1)*100,1)
 #replace NaN to 0
 df.LMS8_D[is.na(df.LMS8_D)] <- 0
 #replace NaN to 0

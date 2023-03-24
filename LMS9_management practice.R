@@ -31,7 +31,6 @@ df.LMS9_P <- data.frame(Livestock = rep("Pigs",each = 9),
                       Farm.2017 = rep(0,9), Farm.2022 = rep(0,9)
                       )
 
-
 #obtain the # farms 
 #For Dairy
 for (j in 1:2) {

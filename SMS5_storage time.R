@@ -74,17 +74,17 @@ df.SMS5wp[,3:6] <- round(proportions(as.matrix(df.SMS5[,3:6]),1)*100,1)
 
 #Insert a new row for responses name
 df.SMS5 <- rbind(c("Livestock","Year",rep(c("weight","farm #")
-                                          ,6)),df.SMS5)
+                                          ,each = 4)),df.SMS5)
 df.SMS5 <- rbind(c("","",rep(c("<6 months",
                                "6-12 months",
                                "1-2 Years", 
-                               "> Years"),each =2)),df.SMS5)
+                               "> 2 Years"),each =2)),df.SMS5)
 df.SMS5wp <- rbind(c("Livestock","Year",rep(c("weight","farm #")
-                                          ,6)),df.SMS5wp)
+                                            ,each = 4)),df.SMS5wp)
 df.SMS5wp <- rbind(c("","",rep(c("<6 months",
                                "6-12 months",
                                "1-2 Years", 
-                               "> Years"),each =2)),df.SMS5wp)
+                               "> 2 Years"),each =2)),df.SMS5wp)
 
 
 #Export tables to excel

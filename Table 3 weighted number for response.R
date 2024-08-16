@@ -14,52 +14,82 @@ for (i in 1:nrow(prov.code)){
                                  prov.code[i,2])
 }
 
+#Create table for all possible combination of prov, livestock, MTS2
+all_combinations <- expand.grid(
+  Prov = c("NS","NB","QC","ON","MB","SK","AB","BC"),
+  Livestock = c("Beef","Dairy","Pigs","Poultry"),
+  MTS2 = c("Liquid","Solid","Both")
+  )
+
+
 #Keep animal, province and weight and manure management type
 Table3_2017 <- Livestock_2017 %>%
   select(Livestock = SectorID, Prov = PROV, Weight = WGTLIVE_AAFC, MTS2 = MTS2) %>%
   mutate(MTS2= case_when( 
           MTS2 == 1 ~ "Liquid",
           MTS2 == 2 ~ "Solid",
-          MTS2 == 3 ~ "Both"))
+          MTS2 == 3 ~ "Both")) %>%
   group_by(Prov,Livestock,MTS2)%>%
   summarise(weight.num = round(sum(Weight),1)) %>%
   na.omit()
 
-Beef_2017 <- Table3_2017 %>%
-  filter(Livestock == "Beef") %>%
-  #keep the order identical to Table 3       
-  MTS2 = factor(MTS2, levels = c("Liquid","Solid", "Both")) %>%                    
-  mutate(Prov = factor(Prov, levels = rev(c("NS","NB","QC","ON","MB","SK","AB","BC")))) %>%
-    pivot_wider(
-  names_from = MTS2,
-  values_from = weight.num
-  )
+#merge with all combination and do the weighted calculation including check NA data 
+Table3_2017 <- merge(all_combinations, Table3_2017,
+                     by = c("Prov", "Livestock", "MTS2"),
+                     all.x = TRUE)
 
+Table3_2017$weight.num <- ave(Table3_2017$weight.num, Table3_2017$Prov, Table3_2017$Livestock,
+                                      FUN = function(x) if(all(is.na(x))) NA else replace(x, is.na(x), 0))
+#Create new column for pivot wider
+Table3_2017$Livestock_MTS <- paste(Table3_2017$Livestock, Table3_2017$MTS2, sep = "_")
+#Pivot 
+T_2017 <- Table3_2017 %>%
+  select(Prov,Livestock_MTS,weight.num) %>%
+  pivot_wider(
+    names_from = Livestock_MTS,
+    values_from = weight.num) %>%
+  mutate(Prov = factor(Prov, levels = rev(c("NS","NB","QC","ON","MB","SK","AB","BC")))) %>%   #keep the order identical to Table 3  
+  arrange(Prov) %>%
+  select(-c(8:10),everything(),c(8:10)) #not a clean method, but works
 
-
-
-
-
+#2022
 
 Table3_2022 <- Livestock_2022 %>%
   select(Livestock = FarmType, Prov = prov, Weight = DWEIGHT_LIVE_FINAL, MTS2 = MTS02) %>%
   mutate(MTS2= case_when( 
     MTS2 == 1 ~ "Liquid",
     MTS2 == 2 ~ "Solid",
-    MTS2 == 3 ~ "Both"),
-    #keep the order identical to Table 3       
-    MTS2 = factor(MTS2, levels = c("Liquid","Solid", "Both"))) %>%                    
-    mutate(Prov = factor(Prov, levels = rev(c("NS","NB","QC","ON","MB","SK","AB","BC"))))
+    MTS2 == 3 ~ "Both")) %>%
+    group_by(Prov,Livestock,MTS2)%>%
+      summarise(weight.num = round(sum(Weight),1)) %>%
+      na.omit()
+    
+#merge with all combination and do the weighted calculation including check NA data 
+Table3_2022 <- merge(all_combinations, Table3_2022,
+                     by = c("Prov", "Livestock", "MTS2"),
+                     all.x = TRUE)
+
+Table3_2022$weight.num <- ave(Table3_2022$weight.num, Table3_2022$Prov, Table3_2022$Livestock,
+                              FUN = function(x) if(all(is.na(x))) NA else replace(x, is.na(x), 0))
+#Create new column for pivot wider
+Table3_2022$Livestock_MTS <- paste(Table3_2022$Livestock, Table3_2022$MTS2, sep = "_")
+#Pivot 
+T_2022 <- Table3_2022 %>%
+  select(Prov,Livestock_MTS,weight.num) %>%
+  pivot_wider(
+    names_from = Livestock_MTS,
+    values_from = weight.num) %>%
+  mutate(Prov = factor(Prov, levels = rev(c("NS","NB","QC","ON","MB","SK","AB","BC")))) %>%   #keep the order identical to Table 3  
+  arrange(Prov) %>%
+  select(-c(8:10),everything(),c(8:10)) #not a clean method, but works
+  
   
 
-
-x<-table(Table3_2017$MTS2,  Table3_2017$Prov, Table3_2017$Livestock)
-
-table(Table2_2022$MTS02, Table2_2022$FarmType, Table2_2022$prov)  
-
-
-  
-total_table <- aggregate(DWEIGHT_LIVE_FINAL ~ prov + FarmType + MTS02, data = Table2_2022, sum)
-
-
-total_table <- aggregate(DWEIGHT_LIVE_FINAL ~ prov + F + MTS02, data = Table2_2022, sum)
+#Output the files
+write.xlsx(T_2017,
+           file = "results/Table 3 number of response.xlsx",
+           sheetName = "2017",col.names = T)
+write.xlsx(T_2022,
+           file = "results/Table 3 number of response.xlsx",
+           sheetName = "2022",
+           col.names = T, append = TRUE)

@@ -3,6 +3,7 @@
 library(tidyverse);library(xlsx)
 
 #2017 data
+
 Dairy2017 <- read.csv("input/2017/Dairy2017.csv",header=T)
 Beef2017 <- read.csv("input/2017/Beef2017.csv",header=T)
 Poultry2017 <- read.csv("input/2017/Poultry2017.csv",header=T)
@@ -16,7 +17,7 @@ SMS4_list <- list(Dairy2017,Dairy2022,
                  Beef2017,Beef2022,
                  Poultry2017,Poultry2022)
 
-#obtain the columne number
+#obtain the column number
 coln <- which(colnames(Dairy2017) == "SMS4a"):
   which(colnames(Dairy2017) == "SMS4f") # all livestock are 43-48
 

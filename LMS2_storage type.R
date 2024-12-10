@@ -165,8 +165,8 @@ for (i in 1:2) {
                           "Earthen Lagoon","",
                           "Other Below-Ground Tank","",
                           "Above-Ground Tank Outside","",
-                          "Pit ot Tank Below Floor in Building","",
                           "Partial Below Ground Tank Outside","",
+                          "Pit ot Tank Below Floor in Building","",
                           "Other","")
 }
 

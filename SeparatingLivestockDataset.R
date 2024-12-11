@@ -34,6 +34,10 @@ Poultry2022 <- subset(Livestock_2022, FarmType=="Poultry",
                    select=-QUID)
 
 #Change the questions name, remove 0 after SMS* or LMS*
+#The "WGTLIVE_AAFC" for 2017 and "DWEIGHT_LIVE_FINAL" for 2022 are the weighting 
+#reflects the similarity of the farm to other farms of the same sub-category 
+#and geographic area based on economic factors
+#determined in the Census of Agriculture 
 Dairy2017 <- rename(Dairy2017, prov = PROV,
                     weight = WGTLIVE_AAFC)
 Beef2017 <- rename(Beef2017, prov = PROV,

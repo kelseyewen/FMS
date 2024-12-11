@@ -171,3 +171,4 @@ write.xlsx(LMS8wp,
              file = "results/LMS8_cover type.xlsx",
              sheetName = "wetight percentage by province",
            row.names = F, col.names = T, append = TRUE)
+

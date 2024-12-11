@@ -94,3 +94,4 @@ for (i in 1:2) {
              file = "results/SMS5_storage time.xlsx",
              sheetName = names(xlsx.list)[i],
              row.names = F, col.names= F, append = TRUE)}
+

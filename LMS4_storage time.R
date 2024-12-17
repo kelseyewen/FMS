@@ -130,6 +130,18 @@ df.LMS4_P[,5:8] <- round(proportions(
                           as.matrix(df.LMS4_P[,5:8]),1)*100,1)
 df.LMS4_P[,9:12] <- round(proportions(
                           as.matrix(df.LMS4_P[,9:12]),1)*100,1)
+
+#aggregate time < 5 months, which are column 5 and 7 (2017) and column 6 and 8 (2022)
+#Not a good method, but very simple
+df.LMS4_D[1:9,5] <- as.numeric(df.LMS4_D[1:9,5]) + as.numeric(df.LMS4_D[1:9,6]) #2017
+df.LMS4_D[1:9,9] <- as.numeric(df.LMS4_D[1:9,9]) + as.numeric(df.LMS4_D[1:9,10]) #2022
+df.LMS4_D <-df.LMS4_D[,c(-6,-10)] 
+
+#aggregate time < 5 months, which are column 5 and 7 (2017) and column 6 and 8 (2022)
+df.LMS4_P[1:9,5] <- as.numeric(df.LMS4_P[1:9,5]) + as.numeric(df.LMS4_P[1:9,8]) #2017
+df.LMS4_P[1:9,9] <- as.numeric(df.LMS4_P[1:9,9]) + as.numeric(df.LMS4_P[1:9,12]) #2022
+df.LMS4_P <-df.LMS4_P[,c(-8,-12)]
+
 #replace NaN to 0
 df.LMS4_D[is.na(df.LMS4_D)] <- 0
 #replace NaN to 0
@@ -152,8 +164,7 @@ for (i in 1:2) {
   colnames(LMS4wp_list[[i]]) <- 
     c("Livestock","Province",
       "Farm response","",
-      "< 3 Months","",
-      "3-5 Months","",
+      "< 5 Months","",
       "5-12 Months","",
       "> 1 Year","")
 }

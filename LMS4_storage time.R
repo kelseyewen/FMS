@@ -3,12 +3,18 @@
 library(tidyverse);library(xlsx)
 
 #2017 data, only dairy and pigs have liquid manure
-Dairy2017 <- read.csv("input/2017/Dairy2017.csv",header=T)
-Pigs2017 <- read.csv("input/2017/Pigs2017.csv",header=T)
+#MTS2:  1 liquid, 2 solid, 3 l and S equal 
+Dairy2017 <- read.csv("input/2017/Dairy2017.csv",header=T) %>%
+  filter(MTS2 == 1 | MTS2 ==3)
+Pigs2017 <- read.csv("input/2017/Pigs2017.csv",header=T) %>%
+  filter(MTS2 == 1 | MTS2 ==3)
 
 #2022 data
-Dairy2022 <- read.csv("input/2022/Dairy2022.csv",header=T)
-Pigs2022 <- read.csv("input/2022/Pigs2022.csv",header=T)
+#MTS2:  1 liquid, 2 solid, 3 l and S equal 
+Dairy2022 <- read.csv("input/2022/Dairy2022.csv",header=T) %>%
+  filter(MTS02 == 1 | MTS02 ==3)
+Pigs2022 <- read.csv("input/2022/Pigs2022.csv",header=T) %>%
+  filter(MTS02 == 1 | MTS02 ==3)
 
 #Create a list for the data
 LMS4_list <- list(Dairy2017,Dairy2022,Pigs2017,Pigs2022)

@@ -3,14 +3,21 @@
 library(tidyverse);library(xlsx)
 
 #2017 data
-Dairy2017 <- read.csv("input/2017/Dairy2017.csv",header=T)
-Beef2017 <- read.csv("input/2017/Beef2017.csv",header=T)
-Poultry2017 <- read.csv("input/2017/Poultry2017.csv",header=T)
+#MTS2:  1 liquid, 2 solid, 3 l and S equal 
+Dairy2017 <- read.csv("input/2017/Dairy2017.csv",header=T) %>%
+  filter(MTS2 == 2 | MTS2 ==3)
+Beef2017 <- read.csv("input/2017/Beef2017.csv",header=T) %>%
+  filter(MTS2 == 2 | MTS2 ==3)
+Poultry2017 <- read.csv("input/2017/Poultry2017.csv",header=T) %>%
+  filter(MTS2 == 2 | MTS2 ==3)
 
 #2022 data
-Dairy2022 <- read.csv("input/2022/Dairy2022.csv",header=T)
-Beef2022 <- read.csv("input/2022/Beef2022.csv",header=T)
-Poultry2022 <- read.csv("input/2022/Poultry2022.csv",header=T)
+Dairy2022 <- read.csv("input/2022/Dairy2022.csv",header=T) %>%
+  filter(MTS02 == 2 | MTS02 ==3)
+Beef2022 <- read.csv("input/2022/Beef2022.csv",header=T) %>%
+  filter(MTS02 == 2 | MTS02 ==3)
+Poultry2022 <- read.csv("input/2022/Poultry2022.csv",header=T) %>%
+  filter(MTS02 == 2 | MTS02 ==3)
 
 SMS5_list <- list(Dairy2017,Dairy2022,
                   Beef2017,Beef2022,
